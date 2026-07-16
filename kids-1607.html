@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITEC · Relatório de Campanha — KIDS2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #f4f6f5;
+    color: #16261f;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(20, 60, 40, 0.08);
+  }
+
+  .header {
+    background: linear-gradient(135deg, #0f5132 0%, #1a7a4c 100%);
+    color: #fff;
+    padding: 40px 36px 32px;
+  }
+
+  .header .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 14.5px;
+    opacity: 0.9;
+  }
+
+  .content {
+    padding: 36px;
+  }
+
+  .status-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #e9f7ee;
+    border: 1px solid #bfe8cf;
+    color: #146c3c;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .status-banner .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #1a9850;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f5132;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .metric-card {
+    background: #f7faf8;
+    border: 1px solid #e5ede8;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .metric-card .value {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: #0f5132;
+    margin-bottom: 4px;
+  }
+
+  .metric-card .label {
+    font-size: 12px;
+    color: #5a6b62;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .narrative {
+    font-size: 14.5px;
+    color: #384a40;
+    margin-bottom: 28px;
+  }
+
+  .narrative p {
+    margin-bottom: 12px;
+  }
+
+  .narrative strong {
+    color: #16261f;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e8ede9;
+    margin: 28px 0;
+  }
+
+  .ask-box {
+    background: #fef9ec;
+    border: 1px solid #f3e2ab;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .ask-box h2 {
+    color: #8a6413;
+  }
+
+  .ask-box p {
+    font-size: 14.5px;
+    color: #4a3f22;
+    margin-bottom: 14px;
+  }
+
+  .ask-box .highlight {
+    background: #fff;
+    border: 1px solid #f0dfa0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #6b4e0e;
+    font-weight: 600;
+  }
+
+  table.simple {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-top: 8px;
+  }
+
+  table.simple td {
+    padding: 7px 0;
+    border-bottom: 1px solid #f0f2f0;
+    color: #384a40;
+  }
+
+  table.simple td:last-child {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    color: #16261f;
+  }
+
+  .footer {
+    padding: 24px 36px;
+    background: #f7faf8;
+    border-top: 1px solid #e8ede9;
+    font-size: 12.5px;
+    color: #7a8880;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .content, .header { padding-left: 22px; padding-right: 22px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="eyebrow">FITEC · Relatório de Performance</div>
+      <h1>Campanha KIDS2026 — Site Público</h1>
+      <p>Período: 09/07 a 16/07/2026 · 8 dias de veiculação</p>
+    </div>
+
+    <div class="content">
+      <div class="status-banner">
+        <span class="dot"></span>
+        Campanha ativa e com ótima resposta de público
+      </div>
+
+      <h2>Resultados até agora</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="value">5.145</div>
+          <div class="label">Impressões</div>
+        </div>
+        <div class="metric-card">
+          <div class="value">501</div>
+          <div class="label">Cliques</div>
+        </div>
+        <div class="metric-card">
+          <div class="value">9,74%</div>
+          <div class="label">Taxa de cliques</div>
+        </div>
+        <div class="metric-card">
+          <div class="value">R$ 0,13</div>
+          <div class="label">Custo por clique</div>
+        </div>
+        <div class="metric-card">
+          <div class="value">357</div>
+          <div class="label">Acessos à página</div>
+        </div>
+        <div class="metric-card">
+          <div class="value">R$ 65,71</div>
+          <div class="label">Investimento total</div>
+        </div>
+      </div>
+
+      <div class="narrative">
+        <p>A campanha vem entregando <strong>resultados consistentemente acima da média do mercado</strong>: uma taxa de cliques de 9,74% é um número muito forte para esse tipo de anúncio, o que mostra que a mensagem está engajando bem o público certo.</p>
+        <p>O custo por clique está em <strong>R$ 0,13</strong> e o custo por acesso à página em <strong>R$ 0,18</strong> — ambos bem enxutos, o que indica que o investimento está sendo usado de forma eficiente, gerando volume relevante de tráfego qualificado para o site com um orçamento ainda modesto.</p>
+        <p>Com apenas 8 dias rodando, já temos <strong>357 pessoas</strong> que clicaram no anúncio e chegaram até a página de inscrição.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="ask-box">
+        <h2>📋 Um dado para fechar a análise</h2>
+        <p>Para calcular o <strong>valor real por inscrição confirmada</strong> (e não só por acesso à página), preciso de um número de vocês:</p>
+        <div class="highlight">
+          Quantas inscrições foram efetivamente concluídas no formulário entre os dias 09/07 e hoje?
+        </div>
+        <p style="margin-top: 14px; margin-bottom: 0;">Com esse número, calculo o custo por inscrição e trago a leitura completa de retorno da campanha no próximo relatório.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Jonas Pinheiro · Gestão de tráfego</span>
+      <span>FITEC · KIDS2026</span>
+    </div>
+  </div>
+</body>
+</html>
