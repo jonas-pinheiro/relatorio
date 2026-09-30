@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beco Gastronomia · Relatório de anúncios · Setembro 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F3EE; --paper:#FFFFFF; --ink:#1E211C; --muted:#5E625A; --line:#DAD6CC;
+  --green:#1F3B2D; --green-soft:#E3EBE5; --mustard:#C9921A; --mustard-soft:#F6ECD4;
+  --tomato:#A93D2B; --tomato-soft:#F5E1DC;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151814; --paper:#1D211C; --ink:#ECEAE3; --muted:#A3A79C; --line:#343a32;
+    --green:#8FC2A2; --green-soft:#223128; --mustard:#E2B24A; --mustard-soft:#342c17;
+    --tomato:#E0816E; --tomato-soft:#3a2320;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151814; --paper:#1D211C; --ink:#ECEAE3; --muted:#A3A79C; --line:#343a32;
+  --green:#8FC2A2; --green-soft:#223128; --mustard:#E2B24A; --mustard-soft:#342c17;
+  --tomato:#E0816E; --tomato-soft:#3a2320;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:40px 22px 64px}
+.num{font-family:"DM Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.2;margin:0}
+p{margin:0 0 1em;max-width:68ch}
+
+/* Cabeçalho */
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--green)}
+.brand{font-family:Fraunces,Georgia,serif;font-size:1.25rem;font-weight:700;color:var(--green)}
+.period{color:var(--muted);font-size:.92rem}
+
+/* Abertura */
+.hero{padding:44px 0 36px}
+.hero h1{font-size:clamp(2rem,5.4vw,3.2rem);font-weight:600;letter-spacing:-.01em;max-width:20ch}
+.hero p{font-size:1.1rem;color:var(--muted);margin-top:18px}
+
+/* Painel de números */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr)}
+.kpi{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi:nth-child(3n){border-right:0}
+.kpi:nth-last-child(-n+3){border-bottom:0}
+.kpi .label{font-size:.88rem;color:var(--muted)}
+.kpi .value{font-size:1.6rem;font-weight:500;margin:4px 0 2px;display:block}
+.kpi .delta{font-size:.82rem}
+.up-bad{color:var(--tomato)} .down-good{color:var(--green)} .flat{color:var(--muted)}
+.kpi.key{background:var(--mustard-soft)}
+
+section{margin-top:56px}
+section>h2{font-size:1.6rem;margin-bottom:8px}
+.lead{color:var(--muted)}
+
+/* Tabelas */
+.tbl-scroll{overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:.93rem}
+th,td{padding:12px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+th{font-weight:600;color:var(--muted);font-size:.84rem;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td small{display:block;color:var(--muted);font-size:.8rem;font-family:Manrope,sans-serif}
+
+/* Barras de custo por conversa */
+.bars{margin-top:22px;display:grid;gap:14px}
+.bar-row{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:14px;align-items:center}
+.bar-name{font-size:.93rem;line-height:1.35}
+.bar-name small{display:block;color:var(--muted);font-size:.8rem}
+.track{position:relative;height:30px;background:var(--bg);border-radius:6px}
+.fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-size:.88rem}
+.fill.good{background:var(--green)} .fill.mid{background:var(--mustard)} .fill.bad{background:var(--tomato)}
+:root[data-theme="dark"] .fill, :root:not([data-theme="light"]) .fill{color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fill{color:#111}}
+:root[data-theme="dark"] .fill{color:#111}
+.target{position:absolute;top:-6px;bottom:-6px;border-left:2px dashed var(--ink);opacity:.55}
+
+/* Leitura */
+.findings{display:grid;gap:18px;margin-top:20px}
+.finding{padding-left:18px;border-left:3px solid var(--mustard)}
+.finding h3{font-family:Manrope,sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:4px}
+.finding p{margin:0;color:var(--muted)}
+
+/* Propostas (é uma sequência de prioridade, por isso numerada) */
+.props{list-style:none;margin:22px 0 0;padding:0;counter-reset:p;display:grid;gap:16px}
+.prop{counter-increment:p;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 22px 18px 70px;position:relative}
+.prop::before{content:counter(p);position:absolute;left:22px;top:18px;font-family:Fraunces,Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--green);line-height:1}
+.prop h3{font-size:1.15rem;margin-bottom:6px}
+.prop p{color:var(--muted);margin-bottom:10px}
+.impact{display:inline-block;font-size:.85rem;background:var(--green-soft);color:var(--green);padding:4px 10px;border-radius:999px;font-weight:600}
+
+.goal{margin-top:28px;background:var(--green);color:#F3F1EA;border-radius:14px;padding:26px 26px 22px}
+.goal h3{font-size:1.35rem;margin-bottom:8px;color:#F3F1EA}
+.goal p{color:#D5DDD6;margin:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .goal{background:#223128}}
+:root[data-theme="dark"] .goal{background:#223128}
+
+.calc{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.calc label{display:flex;flex-direction:column;gap:6px;font-size:.92rem;font-weight:600}
+.field{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--bg);font-weight:500;color:var(--muted)}
+.field input{border:0;background:transparent;color:var(--ink);font:500 1.2rem "DM Mono",ui-monospace,monospace;width:100%;min-width:0}
+.field input:focus{outline:none}
+.field:focus-within{outline:2px solid var(--green);outline-offset:1px}
+.calc-out{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:16px;gap:12px}
+.calc-out .label{display:block;font-size:.85rem;color:var(--muted)}
+.calc-out .value{display:block;font-size:1.5rem;font-weight:500}
+.calc-foot{grid-column:1/-1;margin:0;font-size:1rem}
+.calc-foot strong{color:var(--green)}
+.mgmt{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.mgmt div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.mgmt h3{font-family:Manrope,sans-serif;font-size:1rem;font-weight:700;margin-bottom:4px}
+.mgmt p{margin:0;color:var(--muted);font-size:.94rem}
+@media (max-width:640px){.calc,.mgmt{grid-template-columns:1fr}.calc-out{grid-template-columns:1fr}}
+.note{font-size:.86rem;color:var(--muted);margin-top:48px;padding-top:18px;border-top:1px solid var(--line)}
+.note p{max-width:none}
+footer{margin-top:28px;font-size:.88rem;color:var(--muted)}
+footer strong{color:var(--ink);font-weight:600}
+
+@media (max-width:640px){
+  .wrap{padding:28px 16px 48px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .kpi:nth-child(2n){border-right:0!important}
+  .kpi:nth-last-child(-n+2){border-bottom:0!important}
+  .bar-row{grid-template-columns:1fr;gap:6px}
+  .prop{padding:18px 18px 16px 56px}
+  .prop::before{left:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <span class="brand">Beco Gastronomia</span>
+    <span class="period">Anúncios no Instagram e Facebook · 31 de agosto a 29 de setembro de 2026</span>
+  </header>
+
+  <div class="hero">
+    <h1>Em setembro, 64 pessoas chamaram o Beco no WhatsApp por causa dos anúncios.</h1>
+    <p>São cerca de duas pessoas por dia com vontade de pedir, e todas chegaram direto no WhatsApp do restaurante, sem intermediário. Além disso, o Beco apareceu <span class="num">42.720</span> vezes para quase <span class="num">18 mil</span> pessoas da região. Cada conversa custou em média <span class="num">R$ 6,36</span> em anúncio. Este relatório mostra de onde vieram essas conversas e o que já identificamos para trazer ainda mais em outubro.</p>
+  </div>
+
+  <section style="margin-top:40px">
+    <h2>Quanto isso vale para o Beco</h2>
+    <p class="lead">O investimento total do mês é de R$ 1.000 (anúncios + gestão). Coloque abaixo o valor médio de um pedido e quantas das conversas costumam virar pedido para ver o retorno estimado.</p>
+    <div class="calc">
+      <label>Valor médio de um pedido
+        <span class="field"><span>R$</span><input id="ticket" type="number" inputmode="decimal" min="1" step="1" value="70"></span>
+      </label>
+      <label>A cada 10 conversas, quantas viram pedido
+        <span class="field"><input id="rate" type="number" inputmode="numeric" min="0" max="10" step="1" value="5"><span>de 10</span></span>
+      </label>
+      <div class="calc-out">
+        <div><span class="label">Pedidos estimados no mês</span><span class="value num" id="o-orders">—</span></div>
+        <div><span class="label">Faturamento estimado</span><span class="value num" id="o-rev">—</span></div>
+        <div><span class="label">Pedidos para pagar os R$ 1.000</span><span class="value num" id="o-be">—</span></div>
+      </div>
+      <p class="calc-foot" id="o-text"></p>
+    </div>
+    <p class="lead" style="margin-top:14px">E o efeito vai além do mês: quem pede uma vez e gosta volta a chamar direto, sem precisar ver anúncio de novo. Esses pedidos repetidos não entram nesta conta.</p>
+  </section>
+
+  <div class="panel">
+    <div class="kpis">
+      <div class="kpi key">
+        <span class="label">Custo por conversa</span>
+        <span class="value num">R$ 6,36</span>
+        <span class="delta flat num">agosto: R$ 6,32 (+0,6%)</span>
+      </div>
+      <div class="kpi">
+        <span class="label">Conversas iniciadas</span>
+        <span class="value num">64</span>
+        <span class="delta flat num">agosto: 65</span>
+      </div>
+      <div class="kpi">
+        <span class="label">Investimento</span>
+        <span class="value num">R$ 406,91</span>
+        <span class="delta flat num">agosto: R$ 411,12</span>
+      </div>
+      <div class="kpi">
+        <span class="label">Custo por clique</span>
+        <span class="value num">R$ 0,52</span>
+        <span class="delta up-bad num">agosto: R$ 0,49 (+7%)</span>
+      </div>
+      <div class="kpi">
+        <span class="label">Taxa de cliques</span>
+        <span class="value num">1,82%</span>
+        <span class="delta down-good num">agosto: 1,72%</span>
+      </div>
+      <div class="kpi">
+        <span class="label">Custo por mil exibições</span>
+        <span class="value num">R$ 9,53</span>
+        <span class="delta up-bad num">agosto: R$ 8,45 (+13%)</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Por campanha</h2>
+    <p class="lead">Hoje rodam duas campanhas, cada uma com cerca de R$ 7 por dia. As outras duas ([salão de festas] e [vídeos]) seguem pausadas.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>Campanha</th><th>Investido</th><th>Exibições</th><th>Cliques</th><th>Custo/clique</th><th>Conversas</th><th>Custo/conversa</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cardápio<small>alcançou 7.890 pessoas, cada uma viu ~2,9 vezes</small></td>
+            <td class="num">R$ 209,96</td><td class="num">22.997</td><td class="num">325</td><td class="num">R$ 0,65</td><td class="num">35</td><td class="num">R$ 6,00</td>
+          </tr>
+          <tr>
+            <td>Costela (WhatsApp)<small>alcançou 10.096 pessoas, cada uma viu ~2 vezes</small></td>
+            <td class="num">R$ 196,95</td><td class="num">19.723</td><td class="num">451</td><td class="num">R$ 0,44</td><td class="num">29</td><td class="num">R$ 6,79</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td class="num"><strong>R$ 406,91</strong></td><td class="num"><strong>42.720</strong></td><td class="num"><strong>776</strong></td><td class="num"><strong>R$ 0,52</strong></td><td class="num"><strong>64</strong></td><td class="num"><strong>R$ 6,36</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Por anúncio</h2>
+    <p class="lead">Custo de cada conversa no WhatsApp. A linha tracejada marca R$ 5,20, o custo que tínhamos em junho.</p>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-name">Cardápio (imagem)<small class="num">R$ 200,50 · 34 conversas</small></div>
+        <div class="track"><div class="fill good num" style="width:65.6%">R$ 5,90</div><div class="target" style="left:57.8%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Costela, vídeo narrado<small class="num">R$ 147,56 · 23 conversas</small></div>
+        <div class="track"><div class="fill mid num" style="width:71.3%">R$ 6,42</div><div class="target" style="left:57.8%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Costela, imagem<small class="num">R$ 49,39 · 6 conversas</small></div>
+        <div class="track"><div class="fill bad num" style="width:91.4%">R$ 8,23</div><div class="target" style="left:57.8%"></div></div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:16px">As versões 2 e 3 do anúncio de cardápio receberam só R$ 9,46 no mês somados (1 conversa), porque o próprio Meta quase parou de entregá-las.</p>
+  </section>
+
+  <section>
+    <h2>O que os números mostram</h2>
+    <div class="findings">
+      <div class="finding">
+        <h3>O clique mais barato não é a conversa mais barata</h3>
+        <p>O vídeo da costela tem o clique mais barato da conta (R$ 0,39) e a melhor taxa de cliques (2,71%). Mesmo assim, só 6 em cada 100 cliques viram conversa. No cardápio, o clique custa mais (R$ 0,64), mas 11 em cada 100 viram conversa. O vídeo chama atenção; o cardápio convence a pedir.</p>
+      </div>
+      <div class="finding">
+        <h3>O anúncio de cardápio está pedindo renovação</h3>
+        <p>Ele é o que mais traz conversas, e justamente por isso o público da região já o viu bastante: quase 3 vezes por pessoa no mês. De agosto para setembro, ele alcançou menos gente (8.658 para 7.890) e cada mil exibições ficaram 15% mais caras (R$ 7,92 para R$ 9,13). É o sinal típico de que está na hora de uma peça nova, e isso já está no plano de outubro.</p>
+      </div>
+      <div class="finding">
+        <h3>Encontramos o anúncio que puxava o custo para cima</h3>
+        <p>A imagem da costela custa R$ 8,23 por conversa, 28% a mais que o vídeo da mesma campanha. Foi o principal motivo de a campanha da costela ter subido de R$ 5,92 em agosto para R$ 6,79 em setembro, e a correção é simples.</p>
+      </div>
+      <div class="finding">
+        <h3>A verba está dividida demais</h3>
+        <p>Com R$ 7 por dia em cada campanha, nenhuma das duas junta conversas suficientes para o Meta aprender rápido quem tem mais chance de pedir. Juntas, elas somam 64 conversas no mês; separadas, cada uma aprende com metade disso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Propostas para baixar o custo por conversa</h2>
+    <p class="lead">Em ordem de prioridade: as primeiras são rápidas e sem custo extra, as últimas dependem de gravação ou de ajuste no atendimento.</p>
+    <ol class="props">
+      <li class="prop">
+        <h3>Pausar a imagem da costela</h3>
+        <p>Os cerca de R$ 50 por mês que vão para ela passam para o vídeo narrado, que traz conversas mais baratas. Também vale pausar as versões 2 e 3 do cardápio, que só ocupam espaço.</p>
+        <span class="impact">Campanha costela: de R$ 6,79 para perto de R$ 6,40</span>
+      </li>
+      <li class="prop">
+        <h3>Juntar as duas campanhas em uma só</h3>
+        <p>Uma campanha com R$ 14 por dia e os melhores anúncios juntos (cardápio e vídeo da costela). O Meta passa a aprender com todas as 64 conversas do mês e coloca a verba sozinho no anúncio que estiver convertendo melhor naquela semana. O investimento total continua o mesmo.</p>
+        <span class="impact">Mesma verba, aprendizado concentrado</span>
+      </li>
+      <li class="prop">
+        <h3>Gravar um vídeo narrado do cardápio</h3>
+        <p>A ideia é juntar o que cada anúncio faz de melhor: o formato do vídeo da costela, que prende a atenção, com a mensagem do cardápio, que faz a pessoa chamar. Sugestão: 15 a 20 segundos, vertical, mostrando 3 ou 4 pratos saindo da cozinha, com o preço ou o prato do dia escrito na tela nos primeiros segundos e o convite para chamar no WhatsApp no fim. Ele substitui o anúncio de cardápio atual, que já está cansado.</p>
+        <span class="impact">Maior potencial de redução</span>
+      </li>
+      <li class="prop">
+        <h3>Facilitar o primeiro "oi" no WhatsApp</h3>
+        <p>Configurar no anúncio uma mensagem pronta, como "Quero ver o cardápio de hoje", e perguntas rápidas como "Qual o prato do dia?" e "Vocês entregam no meu bairro?". Quanto menos a pessoa precisa digitar, mais cliques viram conversa. Hoje só 8 em cada 100 cliques chegam a iniciar a conversa.</p>
+        <span class="impact">Mais conversas com os mesmos cliques</span>
+      </li>
+      <li class="prop">
+        <h3>Marcar quem veio do anúncio e pediu</h3>
+        <p>Usar as etiquetas do WhatsApp Business: "veio do anúncio" quando a conversa chega pelo anúncio e "pediu" quando fecha o pedido. Com isso, o próximo relatório passa a mostrar o custo por pedido, que é o número que realmente importa para o restaurante.</p>
+        <span class="impact">Medir o retorno em pedidos</span>
+      </li>
+    </ol>
+
+    <div class="goal">
+      <h3>Meta para outubro: custo por conversa entre R$ 5,20 e R$ 5,50</h3>
+      <p>É voltar ao patamar de junho, com a mesma verba de cerca de R$ 400 por mês. Nessa faixa, o mesmo investimento traria entre 74 e 78 conversas, contra as 64 de setembro.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que a gestão faz pelo Beco</h2>
+    <p class="lead">Os anúncios não rodam no automático. Por trás das 64 conversas existe acompanhamento contínuo para que cada real vá para o anúncio que mais traz clientes.</p>
+    <div class="mgmt">
+      <div><h3>Acompanhamento da verba</h3><p>Verificação de quanto cada anúncio gasta e quanto traz de volta, para cortar o que não funciona antes que desperdice dinheiro.</p></div>
+      <div><h3>Diagnóstico anúncio por anúncio</h3><p>Foi assim que identificamos neste mês que a imagem da costela custava 28% mais que o vídeo e que o cardápio precisa de peça nova.</p></div>
+      <div><h3>Novos anúncios e roteiros</h3><p>Planejamento e roteiro das peças, como o vídeo do cardápio proposto para outubro, pensadas para o público do Beco.</p></div>
+      <div><h3>Relatório mensal</h3><p>Os números traduzidos em decisões: o que funcionou, o que mudou e qual o próximo passo.</p></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <p>Como ler estes números: "conversa" é quando alguém toca no anúncio e envia a primeira mensagem no WhatsApp do Beco. O Meta conta a conversa até 7 dias depois do clique. "Cliques" inclui todos os toques no anúncio, não só no botão. O alcance total é a soma das duas campanhas e pode contar a mesma pessoa duas vezes. A comparação com agosto usa o período de 1 a 30 de agosto; o dado de junho vem do relatório anterior (30 dias até 10 de junho).</p>
+  </div>
+
+  <footer><strong>Jonas Pinheiro</strong> · Gestão de tráfego</footer>
+</div>
+<script>
+(function(){
+  var t=document.getElementById('ticket'), r=document.getElementById('rate');
+  var fmt=function(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});};
+  function calc(){
+    var ticket=Math.max(0,parseFloat(t.value)||0), rate=Math.min(10,Math.max(0,parseFloat(r.value)||0))/10;
+    var orders=Math.round(64*rate), rev=orders*ticket, be=ticket>0?Math.ceil(1000/ticket):0;
+    document.getElementById('o-orders').textContent=orders;
+    document.getElementById('o-rev').textContent=fmt(rev);
+    document.getElementById('o-be').textContent=ticket>0?be:'—';
+    var el=document.getElementById('o-text');
+    if(ticket>0&&orders>0){
+      var x=rev/1000;
+      el.innerHTML='Com esses valores, cada R$ 1 investido volta como <strong>R$ '+x.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'</strong> em faturamento.';
+    } else { el.textContent=''; }
+  }
+  t.addEventListener('input',calc); r.addEventListener('input',calc); calc();
+})();
+</script>
+</body>
+</html>
